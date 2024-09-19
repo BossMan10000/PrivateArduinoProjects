@@ -1,0 +1,180 @@
+#define Trig 2
+#define Echo 13
+
+int Buzz = 3;
+float Durataion, Distance;
+int BuzzDelay=250;
+
+float Buzz1 = 293.66 ;
+float Buzz2 =  329.63;
+float Buzz3 = 349.23;
+float Buzz4 = 392;
+float Buzz5 = 440;
+float Buzz6 = 493.88;
+float Buzz7 = 523.25;
+float Buzz8 = 587.33;
+
+int Led1 = 4;
+int Led2 = 5;
+int Led3 = 6;
+int Led4 = 7;
+int Led5 = 8;
+int Led6 = 9;
+int Led7 = 10;
+int Led8 = 11;
+
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(Trig, OUTPUT);
+  pinMode(Echo, INPUT);
+  pinMode(Buzz, OUTPUT);
+  pinMode(Led1,OUTPUT);
+  pinMode(Led2,OUTPUT);
+  pinMode(Led3,OUTPUT);
+  pinMode(Led4,OUTPUT);
+  pinMode(Led5,OUTPUT);
+  pinMode(Led6,OUTPUT);
+  pinMode(Led7,OUTPUT);
+  pinMode(Led8,OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(Trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(Trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(Trig, LOW);
+  Durataion = pulseIn(Echo, HIGH);
+  Distance = (Durataion / 2) * 0.0343;
+ 
+
+  if (Distance >=2 &&Distance <= 3){
+  Serial.println("You played the(D)note");
+  digitalWrite(Led1,HIGH);
+  tone(Buzz,Buzz1);
+  delay(BuzzDelay);
+  digitalWrite(Led1,LOW);
+  noTone(Buzz);
+  }
+
+ else if (Distance >= 4&&Distance<=5){
+  Serial.println("You played the(E)note");
+  digitalWrite(Led1,HIGH);
+  digitalWrite(Led2,HIGH);
+  tone(Buzz,Buzz2);
+  delay(BuzzDelay);
+  digitalWrite(Led1,LOW);
+  digitalWrite(Led2,LOW);
+  noTone(Buzz);
+ }
+
+ else if (Distance >= 6&&Distance <= 7){
+  Serial.println("You played the(F)note");
+  digitalWrite(Led1,HIGH);
+  digitalWrite(Led2,HIGH);
+  digitalWrite(Led3,HIGH);
+  tone(Buzz,Buzz3);
+  delay(BuzzDelay);
+  digitalWrite(Led1,LOW);
+  digitalWrite(Led2,LOW);
+  digitalWrite(Led3,LOW);
+  noTone(Buzz);
+ }
+
+ else if (Distance >=8&&Distance <= 9){
+  Serial.println("You played the(G)note");
+  digitalWrite(Led1,HIGH);
+  digitalWrite(Led2,HIGH);
+  digitalWrite(Led3,HIGH);
+  digitalWrite(Led4,HIGH);
+  tone(Buzz,Buzz4);
+  delay(BuzzDelay);
+  digitalWrite(Led1,LOW);
+  digitalWrite(Led2,LOW);
+  digitalWrite(Led3,LOW);
+  digitalWrite(Led4,LOW);
+  noTone(Buzz);
+ }
+  else if (Distance >= 10&&Distance<= 11){
+  Serial.println("You played the(A')note");
+  digitalWrite(Led1,HIGH);
+  digitalWrite(Led2,HIGH);
+  digitalWrite(Led3,HIGH);
+  digitalWrite(Led4,HIGH);
+  digitalWrite(Led5,HIGH);
+  tone(Buzz,Buzz5);
+  delay(BuzzDelay);
+  digitalWrite(Led1,LOW);
+  digitalWrite(Led2,LOW);
+  digitalWrite(Led3,LOW);
+  digitalWrite(Led4,LOW);
+  digitalWrite(Led5,LOW);
+  noTone(Buzz);
+  }
+ else if (Distance >=12&&Distance <= 13){
+  Serial.println("You played the(B')note");
+  digitalWrite(Led1,HIGH);
+  digitalWrite(Led2,HIGH);
+  digitalWrite(Led3,HIGH);
+  digitalWrite(Led4,HIGH);
+  digitalWrite(Led5,HIGH);
+  digitalWrite(Led6,HIGH);
+  tone(Buzz,Buzz6);
+  delay(BuzzDelay);
+  digitalWrite(Led1,LOW);
+  digitalWrite(Led2,LOW);
+  digitalWrite(Led3,LOW);
+  digitalWrite(Led4,LOW);
+  digitalWrite(Led5,LOW);
+  digitalWrite(Led6,LOW);
+  noTone(Buzz);
+ }
+ else if (Distance >=14&&Distance <= 15){
+  Serial.println("You played the(C')note");
+  digitalWrite(Led1,HIGH);
+  digitalWrite(Led2,HIGH);
+  digitalWrite(Led3,HIGH);
+  digitalWrite(Led4,HIGH);
+  digitalWrite(Led5,HIGH);
+  digitalWrite(Led6,HIGH);
+  digitalWrite(Led7,HIGH);
+  tone(Buzz,Buzz7);
+  delay(BuzzDelay);
+  digitalWrite(Led1,LOW);
+  digitalWrite(Led2,LOW);
+  digitalWrite(Led3,LOW);
+  digitalWrite(Led4,LOW);
+  digitalWrite(Led5,LOW);
+  digitalWrite(Led6,LOW);
+  digitalWrite(Led7,LOW);
+  noTone(Buzz);
+ }
+  if (Distance >=16&&Distance <= 17){
+  Serial.println("You played the(D')note");
+  digitalWrite(Led1,HIGH);
+  digitalWrite(Led2,HIGH);
+  digitalWrite(Led3,HIGH);
+  digitalWrite(Led4,HIGH);
+  digitalWrite(Led5,HIGH);
+  digitalWrite(Led6,HIGH);
+  digitalWrite(Led7,HIGH);
+  digitalWrite(Led8,HIGH);
+  tone(Buzz,Buzz8);
+  delay(BuzzDelay);
+  digitalWrite(Led1,LOW);
+  digitalWrite(Led2,LOW);
+  digitalWrite(Led3,LOW);
+  digitalWrite(Led4,LOW);
+  digitalWrite(Led5,LOW);
+  digitalWrite(Led6,LOW);
+  digitalWrite(Led7,LOW);
+  digitalWrite(Led8,LOW);
+  noTone(Buzz);
+  }
+
+
+
+}
